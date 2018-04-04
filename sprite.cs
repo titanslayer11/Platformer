@@ -11,7 +11,7 @@ namespace Platformer
 {
     class sprite
     {
-        public Vector2 position = Vector2.Zero;
+        
         public Vector2 offset = Vector2.Zero;
 
         Texture2D texture;
@@ -29,9 +29,9 @@ namespace Platformer
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position, SpriteEffects effects = SpriteEffects.None)
         {
-            spriteBatch.Draw(texture, position + offset, Color.White);
+            spriteBatch.Draw(texture, position, null, Color.White, 0, offset, 1, effects, 0);
         }
     }
 }

@@ -12,8 +12,11 @@ namespace Platformer
 {
     class Player
     {
+        public Vector2 position = Vector2.Zero;
+
         sprite sprite = new sprite();
-        
+        bool hFlipped = false;
+
         public Player()
         {
             
@@ -31,29 +34,34 @@ namespace Platformer
 
             if(state.IsKeyDown(Keys.Up) == true)
             {
-                sprite.position.Y -= speed * deltaTime;
+                position.Y -= speed * deltaTime;
             }
             if(state.IsKeyDown(Keys.Down) == true)
             {
-                sprite.position.Y += speed * deltaTime;
+                position.Y += speed * deltaTime;
             }
             if(state.IsKeyDown(Keys.Left) == true)
             {
-                sprite.position.X -= speed * deltaTime;
+                position.X -= speed * deltaTime;
+                hFlipped = true;
             }
             if(state.IsKeyDown(Keys.Right) == true)
             {
-                sprite.position.X += speed * deltaTime;
+                position.X += speed * deltaTime;
+                hFlipped = false;
             }
 
             sprite.Update(deltaTime);
-                  
-                 
+                
+                
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch);
+            if (hFlipped == true)
+                sprite.Draw(spriteBatch, position, SpriteEffects.FlipHorizontally);
+            else
+                sprite.Draw(spriteBatch, position);
         }
     }
 }
