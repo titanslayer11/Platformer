@@ -32,4 +32,7 @@ C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Wi
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\MonoGame.Extended.Graphics.pdb
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\MonoGame.Extended.Tiled.pdb
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Newtonsoft.Json.xml
-C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\adventurer.xnb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\walk.xnb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\Arial.xnb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\heart (life).xnb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\hero.xnb

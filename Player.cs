@@ -36,7 +36,13 @@ namespace Platformer
 
         public void Load(ContentManager content)
         {
-            sprite.Load(content, "adventurer");
+            //sprite.Load(content, "adventurer");
+
+            AnimatedTexture animation = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
+            animation.Load(content, "walk", 12, 20);
+
+            sprite.Add(animation, 0, -5);
+            sprite.Pause();
         }
 
         public void Update(float deltaTime)
@@ -47,7 +53,7 @@ namespace Platformer
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            sprite.Draw(spriteBatch);
+            sprite.Draw(spriteBatch, position);
         }
         private void UpdateInput(float deltaTime)
         {
@@ -56,12 +62,12 @@ namespace Platformer
             bool falling = isFalling;
 
             Vector2 acceleration = new Vector2(0, Game1.gravity);
-
-            
-
+                        
             if(Keyboard.GetState().IsKeyDown(Keys.Left)== true)
             {
                 acceleration.X -= Game1.acceleration;
+                sprite.SetFlipped(true);
+                sprite.Play();
             }
             else if(wasMovingLeft == true)
             {
@@ -70,6 +76,8 @@ namespace Platformer
             if (Keyboard.GetState().IsKeyDown(Keys.Right) == true)
             {
                 acceleration.X += Game1.acceleration;
+                sprite.SetFlipped(false);
+                sprite.Play();
             }
             else if (wasMovingRight == true)
             {
@@ -77,20 +85,21 @@ namespace Platformer
             }
             if (Keyboard.GetState().IsKeyDown(Keys.Up) == true && this.isJumping == false && falling == false)
             {
-                acceleration.Y -= Game1.jumpImpulse;
+                acceleration.Y -= Game1.jumpImpulse; 
                 this.isJumping = true;
             }
 
             velocity += acceleration * deltaTime;
 
             velocity.X = MathHelper.Clamp(velocity.X, -Game1.maxVelocity.X, Game1.maxVelocity.X);
-            velocity.X = MathHelper.Clamp(velocity.Y, -Game1.maxVelocity.Y, Game1.maxVelocity.Y);
+            velocity.Y = MathHelper.Clamp(velocity.Y, -Game1.maxVelocity.Y, Game1.maxVelocity.Y);
 
             position += velocity * deltaTime;
 
             if ((wasMovingLeft && (velocity.X > 0)) || (wasMovingRight && ( velocity.X < 0)))
             {
                 velocity.X = 0;
+                sprite.Pause();
             }
 
             // collision detection
@@ -150,6 +159,7 @@ namespace Platformer
                     // we just hit
                     position.X = game.TileToPixel(tx);
                     this.velocity.X = 0;    // stop horizontal velocity
+                    sprite.Pause();
                 }
             }
             else if(this.velocity.X < 0)
@@ -160,6 +170,7 @@ namespace Platformer
                     // we just hit
                     position.X = game.TileToPixel(tx + 1);
                     this.velocity.X = 0;    // stop horizontal velocity
+                    sprite.Pause();
                 }
             }
             

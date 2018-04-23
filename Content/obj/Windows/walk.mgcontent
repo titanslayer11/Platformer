@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/James C/Documents/Visual Studio 2017/games/Platformer/Platformer/Content/platformerPack_industrial_tilesheet.png</SourceFile>
-  <SourceTime>2018-04-13T17:39:24.8094659+10:00</SourceTime>
-  <DestFile>C:/Users/James C/Documents/Visual Studio 2017/games/Platformer/Platformer/Content/bin/Windows/platformerPack_industrial_tilesheet.xnb</DestFile>
-  <DestTime>2018-04-23T21:12:53.1989015+10:00</DestTime>
+  <SourceFile>C:/Users/James C/Documents/Visual Studio 2017/games/Platformer/Platformer/Content/walk.png</SourceFile>
+  <SourceTime>2018-04-23T14:33:33.5682612+10:00</SourceTime>
+  <DestFile>C:/Users/James C/Documents/Visual Studio 2017/games/Platformer/Platformer/Content/bin/Windows/walk.xnb</DestFile>
+  <DestTime>2018-04-23T21:12:53.2209598+10:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-02T02:05:36+11:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

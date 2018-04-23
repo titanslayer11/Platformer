@@ -14,7 +14,7 @@ namespace Platformer
     /// </summary>
     public class Game1 : Game
     {
-        public static int tile = 64;
+        public static int tile = 70;
         // abitary choice for in (1 tile = 1 meter)
         public static float meter = tile;
         // very exaggerated gravity (6x)
@@ -30,6 +30,9 @@ namespace Platformer
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SpriteFont arialFont;
+        int score = 0;
+
 
         Player player = null;
 
@@ -85,6 +88,8 @@ namespace Platformer
             // TODO: use this.Content to load your game content here
             player.Load(Content);
 
+            arialFont = Content.Load<SpriteFont>("Arial");
+
             BoxingViewportAdapter viewportAdapter = new BoxingViewportAdapter(Window, GraphicsDevice,
                 ScreenWidth, ScreenHeight);
 
@@ -126,7 +131,7 @@ namespace Platformer
             player.Update(deltaTime);
 
             camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2);
-
+            camera.Zoom = 0.5f;         // zooms in or out of the object being observed.
 
             base.Update(gameTime);
         }
@@ -144,6 +149,8 @@ namespace Platformer
                 GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0f, 0f, -1f);
 
             spriteBatch.Begin(transformMatrix: viewMatrix);
+
+            spriteBatch.DrawString(arialFont, "Score :" + score.ToString(), new Vector2(20, 20), Color.Orange);
 
             mapRenderer.Draw(map, ref viewMatrix, ref projectionMatrix);
             player.Draw(spriteBatch);
