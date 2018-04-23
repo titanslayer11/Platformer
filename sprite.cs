@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace Platformer
 {
-    class sprite
+    class Sprite
     {
         
         public Vector2 offset = Vector2.Zero;
 
         Texture2D texture;
 
-        public sprite()
+        public Sprite()
         {
         }
 

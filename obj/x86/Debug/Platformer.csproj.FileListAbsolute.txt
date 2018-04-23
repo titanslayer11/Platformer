@@ -1,4 +1,3 @@
-C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\hero.xnb
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Platformer.exe
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Platformer.pdb
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\MonoGame.Framework.dll
@@ -23,3 +22,14 @@ C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\obj\x8
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\obj\x86\Debug\Platformer.csproj.CoreCompileInputs.cache
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\obj\x86\Debug\Platformer.exe
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\obj\x86\Debug\Platformer.pdb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\map 2.xnb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\platformerPack_industrial_tilesheet.xnb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\MonoGame.Extended.dll
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\MonoGame.Extended.Graphics.dll
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\MonoGame.Extended.Tiled.dll
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Newtonsoft.Json.dll
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\MonoGame.Extended.pdb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\MonoGame.Extended.Graphics.pdb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\MonoGame.Extended.Tiled.pdb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Newtonsoft.Json.xml
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\adventurer.xnb
