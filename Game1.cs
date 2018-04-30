@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MonoGame.Extended;
 using MonoGame.Extended.Tiled;
 using MonoGame.Extended.Tiled.Graphics;
@@ -30,11 +31,16 @@ namespace Platformer
 
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        SpriteFont arialFont;
-        int score = 0;
-
 
         Player player = null;
+
+        Song gameMusic;
+
+        SpriteFont arialFont;
+        int score = 0;
+        int lives = 3;
+
+        Texture2D heartImage = null;
 
         Camera2D camera = null;
         TiledMap map = null;
@@ -72,7 +78,7 @@ namespace Platformer
         {
             // TODO: Add your initialization logic here
             player = new Player(this);
-
+            player.Position = new Vector2(200, 6700);
             base.Initialize();
         }
 
@@ -89,6 +95,12 @@ namespace Platformer
             player.Load(Content);
 
             arialFont = Content.Load<SpriteFont>("Arial");
+            heartImage = Content.Load<Texture2D>("heart (life)");
+
+            gameMusic = Content.Load<Song>("Music/SuperHero_original_no_Intro");
+            MediaPlayer.Volume = 0.5f;
+            MediaPlayer.Play(gameMusic);
+            
 
             BoxingViewportAdapter viewportAdapter = new BoxingViewportAdapter(Window, GraphicsDevice,
                 ScreenWidth, ScreenHeight);
@@ -149,11 +161,18 @@ namespace Platformer
                 GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height, 0f, 0f, -1f);
 
             spriteBatch.Begin(transformMatrix: viewMatrix);
+                mapRenderer.Draw(map, ref viewMatrix, ref projectionMatrix);
+                player.Draw(spriteBatch);
+            spriteBatch.End();
 
-            spriteBatch.DrawString(arialFont, "Score :" + score.ToString(), new Vector2(20, 20), Color.Orange);
+            spriteBatch.Begin();
 
-            mapRenderer.Draw(map, ref viewMatrix, ref projectionMatrix);
-            player.Draw(spriteBatch);
+                spriteBatch.DrawString(arialFont, "Score : " + score.ToString(), new Vector2(20, 20), Color.Orange);
+           for(int i = 0; i < lives; i++)
+            {
+                spriteBatch.Draw(heartImage, new Vector2(ScreenWidth - 80 - i*34, 44), Color.White);
+            }
+
 
             spriteBatch.End();
 

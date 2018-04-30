@@ -74,3 +74,33 @@
 /processorParam:TextureFormat=Color
 /build:heart (life).png
 
+#begin SFX/Jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/Jump.wav
+
+#begin Music/SuperHero_original.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/SuperHero_original.ogg
+
+#begin Music/SuperHero_original_no_Intro.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/SuperHero_original_no_Intro.ogg
+
+#begin Music/Superhero_violin.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Superhero_violin.ogg
+
+#begin Music/Superhero_violin_no_intro.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/Superhero_violin_no_intro.ogg
+

@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 
 
 namespace Platformer
@@ -17,11 +19,18 @@ namespace Platformer
         Vector2 velocity = Vector2.Zero;
         Vector2 position = Vector2.Zero;
 
+        SoundEffect jumpSound;
+        SoundEffectInstance jumpSoundInstance;
+
         public Vector2 Position
         {
             get
             {
                 return position;
+            }
+            set
+            {
+                sprite.position = value;
             }
         }
 
@@ -40,6 +49,12 @@ namespace Platformer
 
             AnimatedTexture animation = new AnimatedTexture(Vector2.Zero, 0, 1, 1);
             animation.Load(content, "walk", 12, 20);
+
+            jumpSound = content.Load<SoundEffect>("SFX/Jump");
+            jumpSoundInstance = jumpSound.CreateInstance();
+
+
+            jumpSoundInstance.Volume = 0.5f;
 
             sprite.Add(animation, 0, -5);
             sprite.Pause();
@@ -87,6 +102,7 @@ namespace Platformer
             {
                 acceleration.Y -= Game1.jumpImpulse; 
                 this.isJumping = true;
+                jumpSoundInstance.Play();
             }
 
             velocity += acceleration * deltaTime;
