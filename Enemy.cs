@@ -97,7 +97,7 @@ namespace Platformer
                     (celldown && !cell)
                     {
                         ddx = ddx - enemyAcceleration;
-                        // zombie wants to go left
+                        // enemy wants to go left
                     }
                     else
                     {

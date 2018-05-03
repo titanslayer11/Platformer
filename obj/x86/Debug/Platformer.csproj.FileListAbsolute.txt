@@ -45,3 +45,5 @@ C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Wi
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\Music\Superhero_violin.xnb
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\Music\Superhero_violin_no_intro.wma
 C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\Music\Superhero_violin_no_intro.xnb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\gem_blue.xnb
+C:\Users\James C\Documents\Visual Studio 2017\games\Platformer\Platformer\bin\Windows\x86\Debug\Content\monster.xnb

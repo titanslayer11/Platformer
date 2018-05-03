@@ -182,6 +182,8 @@ namespace Platformer
             camera.Position = player.Position - new Vector2(ScreenWidth / 2, ScreenHeight / 2);
             camera.Zoom = 0.5f;         // zooms in or out of the object being observed.
 
+            CheckCollisions();
+
             base.Update(gameTime);
         }
 
@@ -262,40 +264,40 @@ namespace Platformer
 
         }
 
-    }
-    private void CheckCollisions()
-    {
-        foreach(Enemy e in enemies)
+        private void CheckCollisions()
         {
-            if(IsColliding(player.Bounds, e.Bounds) ==true)
+            foreach(Enemy e in enemies)
             {
-                if
-                (player.IsJumping && player.Velocity.Y > 0)
+                if(IsColliding(player.Bounds, e.Bounds) ==true)
                 {
-                    player.JumpOnCollision();
-                    enemies.Remove(e);
-                    break;
-                }
-                else
-                {
+                    if(player.IsJumping && player.Velocity.Y > 0)
+                    {
+                        player.JumpOnCollision();
+                        enemies.Remove(e);
+                        break;
+                    }
+                    else
+                    {
                     // player just died
+                    }
                 }
             }
         }
-    }
-    private bool IsColliding(Rectangle rect1, Rectangle rect2)
-    {
-        if
-        (rect1.X + rect1.Width < rect2.X ||
-        rect1.X > rect2.X + rect2.Width ||
-        rect1.Y + rect1.Height
-        < rect2.Y ||
-        rect1.Y > rect2.Y + rect2.Height)
+
+        private bool IsColliding(Rectangle rect1, Rectangle rect2)
         {
-            // these two rectangles are not colliding
-            return false;
+            if (rect1.X + rect1.Width < rect2.X ||
+                rect1.X > rect2.X + rect2.Width ||
+                rect1.Y + rect1.Height < rect2.Y ||
+                rect1.Y > rect2.Y + rect2.Height)
+            {
+                // these two rectangles are not colliding
+                return false;
+            }
+            // else, the two AABB rectangles overlap, therefore collision
+            return true;
         }
-        // else, the two AABB rectangles overlap, therefore collision
-        return true;
+
     }
+    
 }

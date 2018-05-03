@@ -37,8 +37,14 @@ namespace Platformer
         {
             animations[currentAnimation].UpdateFrame(deltaTime);
         }
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            //spriteBatch.Draw(texture, position, null, Color.White, 0, offset, 1, effects, 0);
+            animations[currentAnimation].DrawFrame(spriteBatch,
+                        position + animationOffsets[currentAnimation], effects);
+        }
 
-        public void Draw(SpriteBatch spriteBatch, Vector2 position, SpriteEffects effects = SpriteEffects.None)
+        public void Draw(SpriteBatch spriteBatch, Vector2 position)
         {
             //spriteBatch.Draw(texture, position, null, Color.White, 0, offset, 1, effects, 0);
             animations[currentAnimation].DrawFrame(spriteBatch, 
