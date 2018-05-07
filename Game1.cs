@@ -94,8 +94,12 @@ namespace Platformer
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            
+
             // TODO: use this.Content to load your game content here
+            //AIE.StateManager.CreateState("Splash", new SplashState());
+           // AIE.StateManager.CreateState("Game", new GameState());
+            //AIE.StateManager.CreateState("GameOver", new GameOverState());
+
             player.Load(Content);
 
             arialFont = Content.Load<SpriteFont>("Arial");
@@ -174,6 +178,8 @@ namespace Platformer
             float deltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
             player.Update(deltaTime);
 
+            //AIE.StateManager.Update(Content, gameTime);
+
             foreach (Enemy e in enemies)
             {
                 e.Update(deltaTime);
@@ -194,6 +200,8 @@ namespace Platformer
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
+
+            //AIE.StateManager.Draw(spriteBatch);
 
             Matrix viewMatrix = camera.GetViewMatrix();
             Matrix projectionMatrix = Matrix.CreateOrthographicOffCenter(0,
