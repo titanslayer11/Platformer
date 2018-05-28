@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ParticleEffects;
 
 
 
@@ -17,12 +18,16 @@ namespace Platformer
         bool isJumping = false;
 
         Vector2 velocity = Vector2.Zero;
-        Vector2 position = Vector2.Zero;
+        Vector2 position = new Vector2(180, 6850);
 
         SoundEffect jumpSound;
         SoundEffectInstance jumpSoundInstance;
 
         bool autoJump = true;
+
+        Emitter sparkEmmiter = null;
+        Texture2D sparkTexture = null;
+        Vector2 offsetEmmiter = new Vector2(25, 70);
 
         public Vector2 Velocity
         {
@@ -71,7 +76,7 @@ namespace Platformer
             isFalling = true;
             isJumping = false;
             velocity = Vector2.Zero;
-            position = Vector2.Zero;
+            position = new Vector2(180, 6850);
         }
 
         public void Load(ContentManager content)
@@ -87,6 +92,9 @@ namespace Platformer
 
             jumpSoundInstance.Volume = 0.5f;
 
+            sparkTexture = content.Load<Texture2D>("spark");
+            sparkEmmiter = new Emitter(sparkTexture, sprite.position);
+
             sprite.Add(animation, 0, -5);
             sprite.Pause();
         }
@@ -94,12 +102,37 @@ namespace Platformer
         public void Update(float deltaTime)
         {
             UpdateInput(deltaTime);
-            sprite.Update(deltaTime);              
+            sprite.Update(deltaTime);
+            sprite.position = position; 
+
+            
+            if(isJumping == true)
+            {
+                sparkEmmiter.position = position + offsetEmmiter;
+                //effects changes
+
+                sparkEmmiter.emissionRate = 15;
+                sparkEmmiter.transparency = 0.75f;
+               
+                
+            }
+            else
+            {
+                sparkEmmiter.position = new Vector2(0, 0);
+            }
+
+            sparkEmmiter.Update(deltaTime); 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             sprite.Draw(spriteBatch, position);
+
+            if(isJumping == true)
+            {
+
+            }
+            sparkEmmiter.Draw(spriteBatch);
         }
         private void UpdateInput(float deltaTime)
         {
